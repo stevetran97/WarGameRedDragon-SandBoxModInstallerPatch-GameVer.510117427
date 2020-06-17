@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WargameModInstallerConfig>
+  <!--Are you looking at the code? Modder in the making!-->
+  <Settings>
+    <General>
+      <WargameVersion Version="RD" />
+      <ModName>W:RD Sandbox Mod</ModName>
+      <CriticalCommands Value="True" />
+      <InstallationBackup Value="False" />
+    </General>
+    <UI>
+      <Screens>
+        <WelcomeScreen>
+          <Header Text="W:RD Sandbox Mod Installer" />
+          <Description Text="This is the installation for The Sandbox Mod 5.4.2. A free mod for EUGEN SYSTEMS' Wargame: Red Dragon full release version (510061340). &#xD;&#xA;&#xD;&#xA;NOTE: If you select &quot;All units to Bluefor&quot;, all of your Redfor decks will be deleted at game launch! Select backup profile or copy your Wargame profile manually to save these decks. Also, set your lobby Opposition as Blufor so that it is Blue vs Blue; no Redfor decks besides the default will work.&#xD;&#xA;&#xD;&#xA;For further information, go to the modding section of the Wargame Forums, and for questions, PM the W:AB Noob on the Wargame Forums.&#xD;&#xA;(Mod released August, 2014)&#xD;&#xA;Click the &quot;Next&quot; button to continue." />
+          <BackgroundImage Path="Extra\Backgrounds\f18.jpg" />
+        </WelcomeScreen>
+        <LocationScreen>
+          <Header Text="Locate your base Wargame: Red Dragon Files" />
+          <Description Text="The setup will install the mod into your Wargame: Red Dragon folder.&#xD;&#xA;&#xD;&#xA;If the following location is not your Wargame: Red Dragon installation directory, please specify the correct one by clicking the &quot;Browse&quot; button.&#xD;&#xA;&#xD;&#xA;(The default location on PC should be &quot;C:\Program Files (x86)\Steam\steamapps\common\Wargame Red Dragon\&quot;)&#xD;&#xA;&#xD;&#xA;Click the &quot;Next&quot; button when you are ready to continue." />
+          <BackgroundImage Path="Extra\Backgrounds\avenger.jpg" />
+        </LocationScreen>
+        <ComponentSelectionScreen>
+          <Header Text="Select the exact modifications you want to install" />
+          <Description Text=" * If a component with an astrisk is selected, you can only play with people with the same components installed." />
+          <BackgroundImage Path="Extra\Backgrounds\lynx.jpg" />
+        </ComponentSelectionScreen>
+        <ProgressScreen>
+          <Header Text="The selected mods are installing." />
+          <Description Text="Please be patient. Though I can imagine why it might be hard. :)" />
+          <BackgroundImage Path="Extra\Backgrounds\su27.jpg" />
+        </ProgressScreen>
+        <InstallCompletedScreen>
+          <Header Text="Installation Finished"></Header>
+          <Description Text="  To the very dedicated fans of the W:RD Sandbox mod,&#xD;&#xA;&#xD;&#xA;  Thank you for your three and a half years of support. Without the encouragements, players, and contributions, Sandbox would have been dead long ago instead of being one of the most popular mods for Wargame: Red Dragon. I cannot not emphasize enough how much your responses have meant to me, and a few people can testify that it was just their personal gratitude that sometimes got me motivated enough to patch the mod up. I include this note in the installer because I see patch as being one of the last - there are not many things to improve on at this point. If you come up with an idea, let me know in Sandbox's Wargame Forum thread.&#xD;&#xA;&#xD;&#xA;Thank you and enjoy the mod!&#xD;&#xA; - The W:RD Noob" />
+          <BackgroundImage Path="Extra\Backgrounds\rafale.jpg" />
+        </InstallCompletedScreen>
+        <InstallFailedScreen>
+          <Description Text="The installation has failed. If uninstalling, try selecting &quot;Do Not Restore Profile&quot;. Otherwise, feel free to contact me on the forums of ModDb." />
+          <BackgroundImage Path="Extra\Backgrounds\ships.jpg" />
+        </InstallFailedScreen>
+        <InstallCanceledScreen>
+          <Header Text="Installation Canceled" />
+          <Description Text="You have canceled the installation.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Click &quot;Finish&quot; to close the program." />
+        </InstallCanceledScreen>
+      </Screens>
+    </UI>
+  </Settings>
+  <InstallCommands>
+    <Component name="all" type="Required" text="Components List">
+      <Component name="inst" type="Exclusive" text="Install">
+        <Component name="sandbox" type="Optional" text="The Sandbox Mod 5.4.2*">
+          <Component name="blufed" type="Optional" text="All units to Bluefor?">
+            <Component name="blufedYes" type="Exclusive" text="Yes">
+              <ReplaceContent sourcePath="Files\everything2.ndfbin" targetPath="Data\WARGAME\PC\510117427\NDF_Win.dat" targetContentPath="pc\ndf\patchable\gfx\everything.ndfbin" />
+              <ReplaceContent sourcePath="Files\components.ndfbin" targetPath="Data\WARGAME\PC\510117427\NDF_Win.dat" targetContentPath="pc\ndf\patchable\ui\components.ndfbin" />
+            </Component>
+            <Component name="blufedNo" type="Exclusive" text="No">
+              <ReplaceContent sourcePath="Files\everything.ndfbin" targetPath="Data\WARGAME\PC\510117427\NDF_Win.dat" targetContentPath="pc\ndf\patchable\gfx\everything.ndfbin" />
+            </Component>
+          </Component>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\us\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\cz\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\fr\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\ger\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\hu\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\ita\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\jpn\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\kor\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\pol\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\ru\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\spa\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\tc\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <AlterDictionary targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat" targetContentPath="pc\localisation\ukr\localisation\interface_outgame.dic">
+            <RenameEntry hash="0EB6341D00000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces Eurocorp-->
+            </RenameEntry>
+            <RenameEntry hash="19F73D0000000000" value="Infinite Units (No DLC)">
+              <!--Replaces Scand-->
+            </RenameEntry>
+            <RenameEntry hash="5AD8610000000000" value="Infinite Units (Yes DLC)">
+              <!--Replaces East-->
+            </RenameEntry>
+            <RenameEntry hash="D1C239CEC3010000" value="Infinite Units (No DLC)">
+              <!--Replaces Red-->
+            </RenameEntry>
+            <RenameEntry hash="5EF36058D6941E00" value="Wargame: Red Dragon Sandbox Mod">
+              <!--Replaces "Welcome to Wargame: Red Dragon"-->
+            </RenameEntry>
+          </AlterDictionary>
+          <ReplaceImage sourcePath="Files\screen.dds" targetPath="Data\WARGAME\PC\430000210\ZZ_4.dat" targetContentPath="pc\texture\pack\outgametextures.ppk|+pc\texture\assets\2d\interface\useoutgame\hq\hq_screen_bg.tgv" />
+          <ReplaceContent sourcePath="Files\outgame.wmv" targetPath="Data\WARGAME\PC\430000210\Data.dat" targetContentPath="assets\videos\outgame.wmv" />
+        </Component>
+        <Component name="backup" type="Optional" text="Backup Profile">
+          <BackupProfile targetPath="Data\Backup\Sandbox\Profiles" />
+        </Component>
+        <Component name="global" type="Optional" text="More Starting Points and Time Options">
+          <ReplaceContent sourcePath="Files\globals.ndfbin" targetPath="Data\WARGAME\PC\510117427\NDF_Win.dat" targetContentPath="pc\ndf\patchable\misc\globals.ndfbin" />
+        </Component>
+        <Component name="constantes" type="Optional" text="9x Income*">
+          <ReplaceContent sourcePath="Files\gdconstanteoriginal.ndfbin" targetPath="Data\WARGAME\PC\510117427\NDF_Win.dat" targetContentPath="pc\ndf\patchable\gfx\gdconstanteoriginal.ndfbin" />
+        </Component>
+        <Component name="camera" type="Optional" text="Vasto's Camera Mod">
+          <ReplaceContent sourcePath="Files\basecamera.ndfbin" targetPath="Data\WARGAME\PC\510117427\NDF_Win.dat" targetContentPath="pc\ndf\patchable\misc\basecamera.ndfbin" />
+        </Component>
+      </Component>
+      <Component name="uninst" type="Exclusive" text="Uninstall">
+        <Component name="restore" type="Exclusive" text="Restore Profile?">
+          <Component name="yesRestore" type="Exclusive" text="Yes">
+            <RestoreProfile sourcePath="Data\Backup\Sandbox\Profiles" />
+          </Component>
+          <Component name="noRestore" type="Exclusive" text="No"></Component>
+        </Component>
+        <CopyModFile sourcePath="Files\Original\NDF_Win.dat" targetPath="Data\WARGAME\PC\510117427\NDF_Win.dat" />
+        <CopyModFile sourcePath="Files\Original\ZZ_Win.dat" targetPath="Data\WARGAME\PC\510053208\510057270\ZZ_Win.dat"></CopyModFile>
+        <ReplaceImage sourcePath="Files\Original\screen.dds" targetPath="Data\WARGAME\PC\430000210\ZZ_4.dat" targetContentPath="pc\texture\pack\outgametextures.ppk|+pc\texture\assets\2d\interface\useoutgame\hq\hq_screen_bg.tgv" />
+        <ReplaceContent sourcePath="Files\Original\outgame.wmv" targetPath="Data\WARGAME\PC\430000210\Data.dat" targetContentPath="assets\videos\outgame.wmv" />
+      </Component>
+    </Component>
+  </InstallCommands>
+</WargameModInstallerConfig>
